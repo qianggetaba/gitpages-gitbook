@@ -17,9 +17,11 @@ test.s
 
     gcc -m32 -c test.s | objdump -d test.o
     gcc -m32 -c test.s | objdump -d -D -Maddr16,data16 test.o   16bit
+windows下nasm
 
+    nasm -f bin test.asm & ndisasm -b 16 test
 
-寄存器顺序表示值
+寄存器顺序表示值，就是modR/M表里的寄存器顺序值
 
     0    1    2    3    4    5    6     7
     EAX  ECX  EDX  EBX  ESP  EBP  ESI   EDI
