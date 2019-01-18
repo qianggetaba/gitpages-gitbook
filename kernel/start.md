@@ -35,6 +35,11 @@ ARCH		?= $(SUBARCH)  ; set the arch
 SRCARCH := x86
 hdr-arch  := $(SRCARCH)
 
+include arch/$(SRCARCH)/Makefile  ; arch related makefile
+export KBUILD_DEFCONFIG KBUILD_KCONFIG  ; KBUILD_DEFCONFIG = default config, 
+
+-include include/config/auto.conf  ; start recursively
+
 ?= ; set variable only if the variable is not set
 
 KCONFIG_CONFIG	?= .config
@@ -48,3 +53,6 @@ USERINCLUDE  ; uapi
 LINUXINCLUDE ; all include dir
 
 archprepare:  ; invoke arch/x86/Makefile#
+
+
+vmlinux:  ; 重要target 
