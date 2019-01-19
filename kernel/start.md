@@ -56,3 +56,9 @@ archprepare:  ; invoke arch/x86/Makefile#
 
 
 vmlinux:  ; 重要target 
+
+-include  ; no error when file not exist
+
+make distclean  ; > mrproper > clean
+make mrproper
+make defconfig
