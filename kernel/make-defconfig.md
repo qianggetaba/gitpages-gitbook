@@ -7,7 +7,8 @@ match target "%config:" [Makefile]
 
     %config: scripts_basic outputmakefile FORCE
     	$(Q)$(MAKE) $(build)=scripts/kconfig $@
-outputmakefile FORCE is empty[Makefile]
+FORCE is empty[Makefile]
+outputmakefile not use
 
     scripts_basic:[Makefile]
     	$(Q)$(MAKE) $(build)=scripts/basic
@@ -50,6 +51,14 @@ will include scripts/kconfig/Makefile, invoke target defconfig:
     endif
     endif
 will build scripts/kconfig/conf.c program, the invoke the conf program
+
+    KBUILD_DEFCONFIG defined after  [Makefile]
+        include arch/$(SRCARCH)/Makefile
+        export KBUILD_DEFCONFIG KBUILD_KCONFIG
+    ifneq ($(wildcard $(srctree)/arch/$(SRCARCH)/configs/$(KBUILD_DEFCONFIG)),) ; if file is exist
+    
+    $(Q)$< $(silent) --defconfig=arch/$(SRCARCH)/configs/$(KBUILD_DEFCONFIG) $(Kconfig)  ; equals to  Kconfig := Kconfig [scripts/kconfig/Makefile]
+    conf --defconfig=arch/x86/configs/x86_64_defconfig Kconfig
 
 make menuconfig is the save process
 
