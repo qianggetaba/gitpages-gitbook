@@ -70,3 +70,9 @@ after $(call if_changed,link-vmlinux) will save all cmd to *.cmd file  ; in if_c
     
 
 include/config/%.conf:[Makefile] will invoke silentoldconfig:[scripts/kconfig/Makefile], generate include/config/, include/generated/
+
+make -n defconfig >make_defconfig_n.txt 2>&1
+make -n >make_default.txt 2>&1  ; need make  to generate include/config, include/generated
+ 
+
+gcc -Wp,-MD,scripts/basic/.fixdep.d  ; -MD write dependency to file
