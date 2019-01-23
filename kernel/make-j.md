@@ -69,3 +69,4 @@ link-vmlinux will invoke cmd_link-vmlinux function [Makefile]
 after $(call if_changed,link-vmlinux) will save all cmd to *.cmd file  ; in if_changed function
     
 
+include/config/%.conf:[Makefile] will invoke silentoldconfig:[scripts/kconfig/Makefile], generate include/config/, include/generated/
