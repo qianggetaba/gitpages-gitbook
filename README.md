@@ -1,5 +1,5 @@
 
-# qiangGetaba  GitPages
+# qianggetaba  GitPages
 
 [GitPages Src](https://github.com/qianggetaba/gitpages-gitbook) Powered by GitBook
 
